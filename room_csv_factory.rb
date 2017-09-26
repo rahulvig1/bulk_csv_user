@@ -1,12 +1,12 @@
 require 'faker'
-require 'CSV'
+require 'csv'
 
 csv_filename  = 'room_upload' + Time.now.to_i.to_s + '.csv'
-user_number = 200
+number_of_rooms = 200
 
 CSV.open(csv_filename, "wb") do |csv|
   csv << ["Name *",	"Capacity *", "Location",	"Contact No",	"Description", "Meeting Types", "Active - By Default true"]
-  (1..user_number).each do |i|
+  (1..number_of_rooms).each do |i|
     room_name = Faker::Address.street_address
     csv << [room_name, 20, "", "", "", "", ""]
   end
